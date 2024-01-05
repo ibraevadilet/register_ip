@@ -7,4 +7,7 @@ class AppShapes {
           topRight: Radius.circular(radius),
         ),
       );
+  static dialogShape({double radius = 20}) => RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(radius),
+      );
 }

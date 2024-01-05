@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:register_ip/theme/app_colors.dart';
 
 class InputBorders {
+  static OutlineInputBorder esiBorder = OutlineInputBorder(
+    borderSide: BorderSide(
+      color: AppColors.color617796Grey.withOpacity(0.05),
+      width: 1,
+    ),
+    borderRadius: const BorderRadius.all(
+      Radius.circular(12),
+    ),
+  );
   static const OutlineInputBorder outlineBorderColorE5E5E5Width1Radius10 =
       OutlineInputBorder(
     borderSide: BorderSide(

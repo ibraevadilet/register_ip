@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTextStyles {
+  static TextStyle s12W500({Color? color}) => TextStyle(
+        color: color ?? Colors.black,
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+      );
   static TextStyle s13W700({Color? color}) => TextStyle(
         color: color ?? Colors.black,
         fontSize: 13,
@@ -72,6 +77,11 @@ abstract class AppTextStyles {
         color: color ?? Colors.black,
         fontWeight: FontWeight.w700,
       );
+  static TextStyle s22W600({Color? color}) => TextStyle(
+        fontSize: 22,
+        color: color ?? Colors.black,
+        fontWeight: FontWeight.w600,
+      );
   static TextStyle s22W400({Color? color}) => TextStyle(
         fontSize: 22,
         color: color ?? Colors.black,
@@ -81,6 +91,11 @@ abstract class AppTextStyles {
         fontSize: 28,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w900,
+      );
+  static TextStyle s30W500({Color? color}) => TextStyle(
+        fontSize: 30,
+        color: color ?? Colors.black,
+        fontWeight: FontWeight.w500,
       );
   static TextStyle s38W300({Color? color}) => TextStyle(
         fontSize: 38,
