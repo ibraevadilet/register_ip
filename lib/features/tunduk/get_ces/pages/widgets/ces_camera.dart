@@ -136,6 +136,7 @@ class _CesCameraScreenState extends State<CesCameraScreen>
                                         path: photo.path,
                                         onCheck: (check) {
                                           if (check == true) {
+                                            // TODO: надо удалить AppRouting и раскомитеть context.router
                                             // context.router.pop(photo);
                                             AppRouting.pushFunction(
                                                 const CesFinish());
