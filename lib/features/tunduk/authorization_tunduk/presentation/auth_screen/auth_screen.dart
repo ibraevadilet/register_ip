@@ -69,7 +69,9 @@ class AuthScreen extends StatelessWidget {
                 borderColor: AppColors.esiMainBlueColor,
                 color: Colors.white,
                 textColor: AppColors.esiMainBlueColor,
-                onPress: () {},
+                onPress: () {
+                  AppRouting.pushFunction(const GetCesRoute());
+                },
                 text: 'Получить ОЭП',
               ),
               const SizedBox(height: 32),

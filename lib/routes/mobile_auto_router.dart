@@ -24,5 +24,10 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: RecoveryPasswordEnterInnRoute.page),
         AutoRoute(page: RecoveryPasswordEnterSmsCodeRoute.page),
         AutoRoute(page: RecoveryPasswordEnterNewPasswordRoute.page),
+        AutoRoute(page: GetCesRoute.page),
+        AutoRoute(page: CesSelfieRoute.page),
+        AutoRoute(page: CesCameraRoute.page),
+        AutoRoute(page: SelfiePreviewRoute.page),
+        AutoRoute(page: CesFinish.page),
       ];
 }
