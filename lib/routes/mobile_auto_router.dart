@@ -5,7 +5,7 @@ import 'package:register_ip/routes/mobile_auto_router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SplashRoute.page),
+        AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: BottomNavigatorRoute.page),
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: AuthSendConfirmRoute.page),
@@ -15,7 +15,7 @@ class AppRouter extends $AppRouter {
           page: PinCodeRepeatRoute.page,
           transitionsBuilder: TransitionsBuilders.noTransition,
         ),
-        AutoRoute(page: PinCodeEnterRoute.page, initial: true),
+        AutoRoute(page: PinCodeEnterRoute.page),
         AutoRoute(page: EsiErrorRoute.page),
         AutoRoute(page: RecoveryPinCodeEnterEsiPasswordRoute.page),
         AutoRoute(page: RecoveryPinCodeChoiseTypeRoute.page),
