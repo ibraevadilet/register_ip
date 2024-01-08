@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.isOutline = true,
     this.hintText,
+    this.maxLength,
   });
 
   final List<TextInputFormatter>? inputFormatters;
@@ -23,10 +24,12 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool isOutline;
   final String? hintText;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxLength,
       inputFormatters: inputFormatters,
       controller: controller,
       keyboardType: keyboardType,
@@ -34,6 +37,7 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
+        counter: const SizedBox(),
         hintText: hintText,
         labelText: labelText,
         border: isOutline
