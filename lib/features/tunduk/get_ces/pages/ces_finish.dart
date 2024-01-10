@@ -23,7 +23,7 @@ class CesFinish extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 20),
             child: FloatingButton(
                 title: 'Выход',
-                bkgColor: AppColors.colorEA5839Orange,
+                bkgColor: AppColors.colorE62F2EMain,
                 onTap: () =>
                     AppRouting.pushAndPopUntilFunction(const AuthRoute())),
           ),

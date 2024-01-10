@@ -32,7 +32,7 @@ class GetCesMain extends StatelessWidget {
             AppRouting.pushFunction(CesSelfieRoute());
           },
           title: 'Далее',
-          bkgColor: AppColors.colorEA5839Orange,
+          bkgColor: AppColors.colorE62F2EMain,
         ),
         child: Form(
           child: SingleChildScrollView(
@@ -84,14 +84,15 @@ class GetCesMain extends StatelessWidget {
                     SizedBox(
                       width: 16,
                       child: Checkbox(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          side: const BorderSide(
-                            width: 2.0,
-                          ),
-                          value: false,
-                          onChanged: (_) {}),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        side: const BorderSide(
+                          width: 2.0,
+                        ),
+                        value: false,
+                        onChanged: (_) {},
+                      ),
                     ),
                     const SizedBox(width: 14),
                     Expanded(

@@ -27,9 +27,10 @@ class CesSelfieScreen extends StatelessWidget {
           areaContent: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: FloatingButton(
-                bkgColor: AppColors.colorEA5839Orange,
+                bkgColor: AppColors.colorE62F2EMain,
                 title: 'Сделать фото',
                 onTap: () async {
+                  //TODO: Раскомитить этот момент и убрать CesCameraRoute
                   // var permissionsGranted =
                   //     await Permission.camera.request().isGranted;
                   // if (permissionsGranted && Platform.isAndroid) {
@@ -38,7 +39,13 @@ class CesSelfieScreen extends StatelessWidget {
                   // }
                   // if (permissionsGranted) {
                   //   // ignore: use_build_context_synchronously
-
+                  // AppRouting.pushFunction(
+                  //                   CesCameraRoute(
+                  //                     description: await ScannerUtils.getCamera(
+                  //                       CameraLensDirection.front,
+                  //                     ),
+                  //                   ),
+                  //                 );
                   // }
                   AppRouting.pushFunction(
                     CesCameraRoute(
