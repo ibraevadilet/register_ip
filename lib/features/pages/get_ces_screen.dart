@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:register_ip/features/tunduk/get_ces/pages/widgets/get_ces_main.dart';
+import 'package:register_ip/features/get_ces/pages/widgets/get_ces_main.dart';
 
 @RoutePage()
 class GetCesScreen extends StatefulWidget {

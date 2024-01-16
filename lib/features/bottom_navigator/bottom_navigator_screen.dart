@@ -3,6 +3,7 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:register_ip/features/bottom_navigator/logic/bottom_navigator_cubit/bottom_navigator_cubit.dart';
+import 'package:register_ip/theme/app_colors.dart';
 
 @RoutePage()
 class BottomNavigatorScreen extends StatelessWidget {
@@ -23,8 +24,8 @@ class BottomNavigatorScreen extends StatelessWidget {
           extendBody: true,
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.purple,
-            selectedItemColor: Colors.white,
+            backgroundColor: Colors.white,
+            selectedItemColor:AppColors.colorE62F2EMain,
             unselectedFontSize: 12,
             unselectedItemColor: Colors.black,
             unselectedIconTheme: const IconThemeData(color: Colors.black),
