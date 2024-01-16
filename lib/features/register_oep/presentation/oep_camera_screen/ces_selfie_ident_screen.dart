@@ -1,13 +1,17 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:register_ip/core/functions/push_router_func.dart';
 import 'package:register_ip/core/images/app_images.dart';
 import 'package:register_ip/core/utils/scanner_utils.dart';
 import 'package:register_ip/routes/mobile_auto_router.gr.dart';
 import 'package:register_ip/theme/app_colors.dart';
 import 'package:register_ip/theme/app_text_styles.dart';
+import 'package:register_ip/widgets/custom_app_bar.dart';
 import 'package:register_ip/widgets/floating_bottom_area.dart';
 import 'package:register_ip/widgets/floating_button.dart';
 
@@ -15,46 +19,36 @@ import 'package:register_ip/widgets/floating_button.dart';
 class CesSelfieScreen extends StatelessWidget {
   const CesSelfieScreen({
     Key? key,
-    this.passwordRequired = true,
   }) : super(key: key);
-  final bool passwordRequired;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: const CustomAppBar(),
       body: SafeArea(
         child: FloatingBottomArea(
           areaContent: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: FloatingButton(
-                bkgColor: AppColors.colorE62F2EMain,
-                title: 'Сделать фото',
-                onTap: () async {
-                  //TODO: Раскомитить этот момент и убрать CesCameraRoute
-                  // var permissionsGranted =
-                  //     await Permission.camera.request().isGranted;
-                  // if (permissionsGranted && Platform.isAndroid) {
-                  //   permissionsGranted =
-                  //       await Permission.microphone.request().isGranted;
-                  // }
-                  // if (permissionsGranted) {
-                  //   // ignore: use_build_context_synchronously
-                  // AppRouting.pushFunction(
-                  //                   CesCameraRoute(
-                  //                     description: await ScannerUtils.getCamera(
-                  //                       CameraLensDirection.front,
-                  //                     ),
-                  //                   ),
-                  //                 );
-                  // }
+              bkgColor: AppColors.colorE62F2EMain,
+              title: 'Сделать фото',
+              onTap: () async {
+                var permissionsGranted =
+                    await Permission.camera.request().isGranted;
+                if (permissionsGranted && Platform.isAndroid) {
+                  permissionsGranted =
+                      await Permission.microphone.request().isGranted;
+                }
+                if (permissionsGranted) {
                   AppRouting.pushFunction(
-                    CesCameraRoute(
+                    OEPCameraRoute(
                       description: await ScannerUtils.getCamera(
                         CameraLensDirection.front,
                       ),
                     ),
                   );
-                }),
+                }
+              },
+            ),
           ),
           child: Center(
             child: Column(

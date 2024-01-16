@@ -13,6 +13,16 @@ import 'package:camera/camera.dart' as _i24;
 import 'package:flutter/material.dart' as _i23;
 import 'package:register_ip/features/bottom_navigator/bottom_navigator_screen.dart'
     as _i4;
+import 'package:register_ip/features/register_oep/presentation/oep_camera_screen/ces_selfie_ident_screen.dart'
+    as _i5;
+import 'package:register_ip/features/register_oep/presentation/oep_camera_screen/oep_camera_screen.dart'
+    as _i7;
+import 'package:register_ip/features/register_oep/presentation/oep_camera_screen/selife_preview_screen.dart'
+    as _i20;
+import 'package:register_ip/features/register_oep/presentation/oep_finish_screen/oep_finish_screen.dart'
+    as _i8;
+import 'package:register_ip/features/register_oep/presentation/oep_register_screen/oep_register_screen.dart'
+    as _i9;
 import 'package:register_ip/features/splash/splash_screen.dart' as _i21;
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/auth_confirm_code_screen/auth_confirm_code_screen.dart'
     as _i1;
@@ -21,23 +31,13 @@ import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/au
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/auth_send_confirm_screen/auth_send_confirm_screen.dart'
     as _i3;
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/error_screen/error_screen.dart'
-    as _i8;
+    as _i6;
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_create_screen/pin_code_create_screen.dart'
     as _i10;
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_enter_screen/pin_code_enter_screen.dart'
     as _i11;
 import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_repeat_screen/pin_code_repeat_screen.dart'
     as _i12;
-import 'package:register_ip/features/get_ces/pages/ces_finish.dart'
-    as _i6;
-import 'package:register_ip/features/get_ces/pages/get_ces_screen.dart'
-    as _i9;
-import 'package:register_ip/features/get_ces/pages/widgets/ces_camera.dart'
-    as _i5;
-import 'package:register_ip/features/get_ces/pages/widgets/ces_selfie_ident.dart'
-    as _i7;
-import 'package:register_ip/features/get_ces/pages/widgets/selife_preview_screen.dart'
-    as _i20;
 import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_choise_type_screen/recovery_password_choise_type_screen.dart'
     as _i13;
 import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_enter_inn_screen/recovery_password_enter_inn_screen.dart'
@@ -82,43 +82,38 @@ abstract class $AppRouter extends _i22.RootStackRouter {
         child: const _i4.BottomNavigatorScreen(),
       );
     },
-    CesCameraRoute.name: (routeData) {
-      final args = routeData.argsAs<CesCameraRouteArgs>();
-      return _i22.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i5.CesCameraScreen(
-          key: args.key,
-          description: args.description,
-        ),
-      );
-    },
-    CesFinish.name: (routeData) {
-      return _i22.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i6.CesFinish(),
-      );
-    },
     CesSelfieRoute.name: (routeData) {
-      final args = routeData.argsAs<CesSelfieRouteArgs>(
-          orElse: () => const CesSelfieRouteArgs());
       return _i22.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.CesSelfieScreen(
-          key: args.key,
-          passwordRequired: args.passwordRequired,
-        ),
+        child: const _i5.CesSelfieScreen(),
       );
     },
     EsiErrorRoute.name: (routeData) {
       return _i22.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.EsiErrorScreen(),
+        child: const _i6.EsiErrorScreen(),
       );
     },
-    GetCesRoute.name: (routeData) {
+    OEPCameraRoute.name: (routeData) {
+      final args = routeData.argsAs<OEPCameraRouteArgs>();
       return _i22.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.GetCesScreen(),
+        child: _i7.OEPCameraScreen(
+          key: args.key,
+          description: args.description,
+        ),
+      );
+    },
+    OEPFinishRoute.name: (routeData) {
+      return _i22.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.OEPFinishScreen(),
+      );
+    },
+    OEPRegisterRoute.name: (routeData) {
+      return _i22.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.OEPRegisterScreen(),
       );
     },
     PinCodeCreateRoute.name: (routeData) {
@@ -277,97 +272,21 @@ class BottomNavigatorRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.CesCameraScreen]
-class CesCameraRoute extends _i22.PageRouteInfo<CesCameraRouteArgs> {
-  CesCameraRoute({
-    _i23.Key? key,
-    required _i24.CameraDescription description,
-    List<_i22.PageRouteInfo>? children,
-  }) : super(
-          CesCameraRoute.name,
-          args: CesCameraRouteArgs(
-            key: key,
-            description: description,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'CesCameraRoute';
-
-  static const _i22.PageInfo<CesCameraRouteArgs> page =
-      _i22.PageInfo<CesCameraRouteArgs>(name);
-}
-
-class CesCameraRouteArgs {
-  const CesCameraRouteArgs({
-    this.key,
-    required this.description,
-  });
-
-  final _i23.Key? key;
-
-  final _i24.CameraDescription description;
-
-  @override
-  String toString() {
-    return 'CesCameraRouteArgs{key: $key, description: $description}';
-  }
-}
-
-/// generated route for
-/// [_i6.CesFinish]
-class CesFinish extends _i22.PageRouteInfo<void> {
-  const CesFinish({List<_i22.PageRouteInfo>? children})
+/// [_i5.CesSelfieScreen]
+class CesSelfieRoute extends _i22.PageRouteInfo<void> {
+  const CesSelfieRoute({List<_i22.PageRouteInfo>? children})
       : super(
-          CesFinish.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CesFinish';
-
-  static const _i22.PageInfo<void> page = _i22.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i7.CesSelfieScreen]
-class CesSelfieRoute extends _i22.PageRouteInfo<CesSelfieRouteArgs> {
-  CesSelfieRoute({
-    _i23.Key? key,
-    bool passwordRequired = true,
-    List<_i22.PageRouteInfo>? children,
-  }) : super(
           CesSelfieRoute.name,
-          args: CesSelfieRouteArgs(
-            key: key,
-            passwordRequired: passwordRequired,
-          ),
           initialChildren: children,
         );
 
   static const String name = 'CesSelfieRoute';
 
-  static const _i22.PageInfo<CesSelfieRouteArgs> page =
-      _i22.PageInfo<CesSelfieRouteArgs>(name);
-}
-
-class CesSelfieRouteArgs {
-  const CesSelfieRouteArgs({
-    this.key,
-    this.passwordRequired = true,
-  });
-
-  final _i23.Key? key;
-
-  final bool passwordRequired;
-
-  @override
-  String toString() {
-    return 'CesSelfieRouteArgs{key: $key, passwordRequired: $passwordRequired}';
-  }
+  static const _i22.PageInfo<void> page = _i22.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.EsiErrorScreen]
+/// [_i6.EsiErrorScreen]
 class EsiErrorRoute extends _i22.PageRouteInfo<void> {
   const EsiErrorRoute({List<_i22.PageRouteInfo>? children})
       : super(
@@ -381,15 +300,67 @@ class EsiErrorRoute extends _i22.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.GetCesScreen]
-class GetCesRoute extends _i22.PageRouteInfo<void> {
-  const GetCesRoute({List<_i22.PageRouteInfo>? children})
-      : super(
-          GetCesRoute.name,
+/// [_i7.OEPCameraScreen]
+class OEPCameraRoute extends _i22.PageRouteInfo<OEPCameraRouteArgs> {
+  OEPCameraRoute({
+    _i23.Key? key,
+    required _i24.CameraDescription description,
+    List<_i22.PageRouteInfo>? children,
+  }) : super(
+          OEPCameraRoute.name,
+          args: OEPCameraRouteArgs(
+            key: key,
+            description: description,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'GetCesRoute';
+  static const String name = 'OEPCameraRoute';
+
+  static const _i22.PageInfo<OEPCameraRouteArgs> page =
+      _i22.PageInfo<OEPCameraRouteArgs>(name);
+}
+
+class OEPCameraRouteArgs {
+  const OEPCameraRouteArgs({
+    this.key,
+    required this.description,
+  });
+
+  final _i23.Key? key;
+
+  final _i24.CameraDescription description;
+
+  @override
+  String toString() {
+    return 'OEPCameraRouteArgs{key: $key, description: $description}';
+  }
+}
+
+/// generated route for
+/// [_i8.OEPFinishScreen]
+class OEPFinishRoute extends _i22.PageRouteInfo<void> {
+  const OEPFinishRoute({List<_i22.PageRouteInfo>? children})
+      : super(
+          OEPFinishRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OEPFinishRoute';
+
+  static const _i22.PageInfo<void> page = _i22.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.OEPRegisterScreen]
+class OEPRegisterRoute extends _i22.PageRouteInfo<void> {
+  const OEPRegisterRoute({List<_i22.PageRouteInfo>? children})
+      : super(
+          OEPRegisterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OEPRegisterRoute';
 
   static const _i22.PageInfo<void> page = _i22.PageInfo<void>(name);
 }

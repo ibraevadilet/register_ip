@@ -24,6 +24,11 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>sms</string>
+	<string>tel</string>
+	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Биометрия используется, чтобы не вводить ПИН-код каждый раз</string>
 	<key>NSCameraUsageDescription</key>

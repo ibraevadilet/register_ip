@@ -70,7 +70,7 @@ class AuthScreen extends StatelessWidget {
                 color: Colors.white,
                 textColor: AppColors.esiMainBlueColor,
                 onPress: () {
-                  AppRouting.pushFunction(const GetCesRoute());
+                  AppRouting.pushFunction(const OEPRegisterRoute());
                 },
                 text: 'Получить ОЭП',
               ),

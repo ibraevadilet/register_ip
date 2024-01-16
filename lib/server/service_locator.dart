@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:register_ip/features/bottom_navigator/logic/bottom_navigator_cubit/bottom_navigator_cubit.dart';
+import 'package:register_ip/features/register_oep/data/repo_impls/register_oep_repo_impl.dart';
+import 'package:register_ip/features/register_oep/domain/repository/register_oep_repo.dart';
+import 'package:register_ip/features/register_oep/domain/use_cases/register_oep_use_case.dart';
+import 'package:register_ip/features/register_oep/presentation/oep_register_screen/cubits/register_oep_cubit/register_oep_cubit.dart';
 import 'package:register_ip/features/splash/splash_cubit/splash_cubit.dart';
 import 'package:register_ip/routes/mobile_auto_router.dart';
 import 'package:register_ip/server/dio_settings.dart';
@@ -27,11 +31,15 @@ Future<void> initServiceLocator() async {
   sl.registerSingleton<AppRouter>(AppRouter());
 
   /// Repository
+  sl.registerFactory<RegisterOEPRepo>(() => RegisterOEPRepoImpl(dio: sl()));
 
   /// UseCases
+  sl.registerLazySingleton<RegisterOEPUseCase>(
+      () => RegisterOEPUseCase(repo: sl()));
 
   /// BLoCs / Cubits
 
   sl.registerFactory<SplashCubit>(() => SplashCubit(prefs: sl()));
   sl.registerFactory<BottomNavigatorCubit>(() => BottomNavigatorCubit());
+  sl.registerFactory<RegisterOepCubit>(() => RegisterOepCubit(useCase: sl()));
 }

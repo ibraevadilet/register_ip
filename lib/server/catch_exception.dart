@@ -17,11 +17,13 @@ class CatchException {
       } else if (error.response!.statusCode == 405) {
         return CatchException(message: LocaleKeys.catchExRequestDenied.tr());
       } else if (error.response!.statusCode == 400) {
-        return CatchException(message: error.response!.data['message']);
+        return CatchException(message: error.response!.data['error']);
       } else if (error.response!.statusCode == 409) {
-        return CatchException(message: error.response!.data['message']);
+        return CatchException(message: error.response!.data['error']);
+      } else if (error.response!.statusCode == 415) {
+        return CatchException(message: error.response!.data['error']);
       } else if (error.response!.statusCode == 500) {
-        return CatchException(message: error.response!.data['message']);
+        return CatchException(message: error.response!.data['error']);
       } else {
         return CatchException(message: LocaleKeys.catchExSystemError.tr());
       }
