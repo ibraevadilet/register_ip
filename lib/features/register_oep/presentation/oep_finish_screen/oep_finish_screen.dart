@@ -44,7 +44,7 @@ class OEPFinishScreen extends StatelessWidget {
             const Spacer(),
             CustomButton(
               radius: 16,
-              color: AppColors.colorE62F2EMain,
+              color: AppColors.color54B25AMain,
               onPress: () => AppRouting.pushAndPopUntilFunction(
                 const AuthRoute(),
               ),

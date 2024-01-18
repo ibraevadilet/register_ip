@@ -29,7 +29,7 @@ class CesSelfieScreen extends StatelessWidget {
           areaContent: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
             child: FloatingButton(
-              bkgColor: AppColors.colorE62F2EMain,
+              bkgColor: AppColors.color54B25AMain,
               title: 'Сделать фото',
               onTap: () async {
                 var permissionsGranted =

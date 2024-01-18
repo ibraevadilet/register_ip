@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:register_ip/core/images/app_images.dart';
 import 'package:register_ip/features/bottom_navigator/logic/bottom_navigator_cubit/bottom_navigator_cubit.dart';
 import 'package:register_ip/theme/app_colors.dart';
 
@@ -25,7 +27,7 @@ class BottomNavigatorScreen extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.white,
-            selectedItemColor:AppColors.colorE62F2EMain,
+            selectedItemColor: AppColors.color54B25AMain,
             unselectedFontSize: 12,
             unselectedItemColor: Colors.black,
             unselectedIconTheme: const IconThemeData(color: Colors.black),
@@ -33,10 +35,19 @@ class BottomNavigatorScreen extends StatelessWidget {
             onTap: (index) {
               context.read<BottomNavigatorCubit>().getCurrentPage(index);
             },
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Profile'),
+                  backgroundColor: AppColors.color54B25AMain,
+                  icon: SvgPicture.asset(AppImages.homeIcon),
+                  label: 'Главная'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(AppImages.bankIcon), label: 'Банк'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(AppImages.qrIcon), label: 'QR'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(AppImages.myIpIcon), label: 'Мой ИП'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(AppImages.moreIcon), label: 'Ещё'),
             ],
           ),
         );

@@ -14,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     this.isOutline = true,
     this.hintText,
     this.maxLength,
+    this.prefixIcon,
   });
 
   final List<TextInputFormatter>? inputFormatters;
@@ -25,6 +26,7 @@ class CustomTextField extends StatelessWidget {
   final bool isOutline;
   final String? hintText;
   final int? maxLength;
+  final Widget? prefixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon,
         counter: const SizedBox(),
         hintText: hintText,
         labelText: labelText,

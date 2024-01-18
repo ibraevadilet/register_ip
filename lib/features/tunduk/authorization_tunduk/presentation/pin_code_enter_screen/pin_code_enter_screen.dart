@@ -83,7 +83,7 @@ class _PinCodeEnterScreenState extends State<PinCodeEnterScreen> {
             PinCodeInputWidget(
               controller: pinController,
               onCompleted: (val) {
-                AppRouting.pushFunction(const EsiErrorRoute());
+                AppRouting.pushFunction(const RegisterIPMainRoute());
               },
             ),
             const SizedBox(height: 20),
