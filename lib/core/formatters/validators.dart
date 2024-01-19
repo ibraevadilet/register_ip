@@ -6,6 +6,45 @@ class AppInputValidators {
     return null;
   }
 
+  static String? phoneValidator(String? val) {
+    if (val!.isEmpty) {
+      return 'Поле обязательно для заполнения';
+    }
+    if (val.length != 9) {
+      return 'Введите корректный номер телефона';
+    } else {
+      return null;
+    }
+  }
+
+  static String? innValidator(String? val) {
+    var regexp = RegExp(r'^[0-9]*$');
+    if (val!.isEmpty) {
+      return 'Поле обязательно для заполнения';
+    }
+    if (val.length != 14 || (!val.startsWith('1') && !val.startsWith('2'))) {
+      return 'Введите корректный ИНН';
+    } else if (!regexp.hasMatch(val)) {
+      return 'Введите корректный ИНН';
+    } else {
+      return null;
+    }
+  }
+  
+
+  static String? anIdValidator(String? val) {
+    if (val!.isEmpty) {
+      return 'Поле обязательно для заполнения';
+    }
+    RegExp englishLettersOnly = RegExp(r'^[a-zA-Z]+$');
+
+    if (!englishLettersOnly.hasMatch(val)) {
+      return 'Введите корректную';
+    } else {
+      return null;
+    }
+  }
+
   static String? pinCodeValidator({
     required String? str,
     bool useLengthValidator = true,

@@ -22,6 +22,7 @@ class AppImages {
   static const String faceIdIconSvg = 'assets/images/face_id_icon_svg.svg';  
   static const String fingerPrintIconSvg = 'assets/images/finger_print_icon_svg.svg';  
   static const String homeIcon = 'assets/images/home_icon.svg';  
+  static const String logo = 'assets/images/logo.png';  
   static const String moreIcon = 'assets/images/more_icon.svg';  
   static const String myIpIcon = 'assets/images/my_ip_icon.svg';  
   static const String passwordIconSvg = 'assets/images/password_icon_svg.svg';  

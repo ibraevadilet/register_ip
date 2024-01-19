@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:register_ip/features/bottom_navigator/logic/bottom_navigator_cubit/bottom_navigator_cubit.dart';
-import 'package:register_ip/features/register_oep/data/repo_impls/register_oep_repo_impl.dart';
-import 'package:register_ip/features/register_oep/domain/repository/register_oep_repo.dart';
+import 'package:register_ip/features/register_oep/data/repo_implements/get_terms_repo_impl.dart';
+import 'package:register_ip/features/register_oep/data/repo_implements/register_oep_repo_impl.dart';
+import 'package:register_ip/features/register_oep/domain/repositories/get_terms_repository.dart';
+import 'package:register_ip/features/register_oep/domain/repositories/register_oep_repo.dart';
+import 'package:register_ip/features/register_oep/domain/use_cases/get_terms_usecase.dart';
 import 'package:register_ip/features/register_oep/domain/use_cases/register_oep_use_case.dart';
+import 'package:register_ip/features/register_oep/presentation/oep_register_screen/cubits/get_terms_cubit/get_terms_cubit.dart';
 import 'package:register_ip/features/register_oep/presentation/oep_register_screen/cubits/register_oep_cubit/register_oep_cubit.dart';
 import 'package:register_ip/features/splash/splash_cubit/splash_cubit.dart';
 import 'package:register_ip/routes/mobile_auto_router.dart';
@@ -32,14 +36,17 @@ Future<void> initServiceLocator() async {
 
   /// Repository
   sl.registerFactory<RegisterOEPRepo>(() => RegisterOEPRepoImpl(dio: sl()));
+  sl.registerFactory<GetTermsRepo>(() => GetTermsRepoImpl(dio: sl()));
 
   /// UseCases
   sl.registerLazySingleton<RegisterOEPUseCase>(
       () => RegisterOEPUseCase(repo: sl()));
+  sl.registerLazySingleton<GetTermsUseCase>(() => GetTermsUseCase(repo: sl()));
 
   /// BLoCs / Cubits
 
   sl.registerFactory<SplashCubit>(() => SplashCubit(prefs: sl()));
   sl.registerFactory<BottomNavigatorCubit>(() => BottomNavigatorCubit());
   sl.registerFactory<RegisterOepCubit>(() => RegisterOepCubit(useCase: sl()));
+  sl.registerFactory<GetTermsCubit>(() => GetTermsCubit(useCase: sl()));
 }

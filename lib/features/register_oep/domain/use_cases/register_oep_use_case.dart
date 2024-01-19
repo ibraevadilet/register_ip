@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:register_ip/features/register_oep/data/models/send_register_oep_model.dart';
-import 'package:register_ip/features/register_oep/domain/repository/register_oep_repo.dart';
+import 'package:register_ip/features/register_oep/domain/repositories/register_oep_repo.dart';
 
 class RegisterOEPUseCase {
   RegisterOEPUseCase({required this.repo});

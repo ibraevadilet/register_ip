@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:register_ip/core/constants/app_text_constants.dart';
 import 'package:register_ip/core/formatters/validators.dart';
 import 'package:register_ip/core/functions/push_router_func.dart';
+import 'package:register_ip/features/register_oep/presentation/oep_register_screen/cubits/get_terms_cubit/get_terms_cubit.dart';
 import 'package:register_ip/features/register_oep/presentation/oep_register_screen/cubits/register_oep_cubit/register_oep_cubit.dart';
 import 'package:register_ip/features/register_oep/presentation/oep_register_screen/widgets/register_check_box_widget.dart';
 import 'package:register_ip/routes/mobile_auto_router.gr.dart';
@@ -14,7 +15,6 @@ import 'package:register_ip/widgets/app_unfocuser.dart';
 import 'package:register_ip/widgets/custom_app_bar.dart';
 import 'package:register_ip/widgets/custom_button.dart';
 import 'package:register_ip/widgets/custom_text_fields.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
 class OEPRegisterScreen extends StatelessWidget {
@@ -22,8 +22,15 @@ class OEPRegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<RegisterOepCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<RegisterOepCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetTermsCubit>(),
+        ),
+      ],
       child: AppUnfocuser(
         child: Scaffold(
           appBar: const CustomAppBar(
@@ -46,7 +53,7 @@ class OEPRegisterScreen extends StatelessWidget {
                                 maxLength: 14,
                                 labelText: 'ИНН',
                                 keyboardType: TextInputType.number,
-                                validator: AppInputValidators.emptyValidator,
+                                validator: AppInputValidators.innValidator,
                                 controller: context
                                     .read<RegisterOepCubit>()
                                     .useCase
@@ -59,6 +66,11 @@ class OEPRegisterScreen extends StatelessWidget {
                                   Flexible(
                                     flex: 2,
                                     child: CustomTextField(
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(
+                                            RegExp('[a-zA-Z]')),
+                                      ],
+                                      isId: true,
                                       controller: context
                                           .read<RegisterOepCubit>()
                                           .useCase
@@ -88,13 +100,17 @@ class OEPRegisterScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               CustomTextField(
+                                prefixText: '+996 ',
                                 controller: context
                                     .read<RegisterOepCubit>()
                                     .useCase
                                     .phoneNumber,
                                 labelText: 'Номер телефона',
-                                keyboardType: TextInputType.phone,
-                                validator: AppInputValidators.emptyValidator,
+                                keyboardType: TextInputType.number,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(9),
+                                ],
+                                validator: AppInputValidators.phoneValidator,
                               ),
                               const SizedBox(height: 8),
                               CustomTextField(
@@ -107,38 +123,7 @@ class OEPRegisterScreen extends StatelessWidget {
                                 validator: AppInputValidators.emptyValidator,
                               ),
                               const SizedBox(height: 16),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const RegisterCheckBoxWidget(),
-                                  const SizedBox(width: 14),
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () async {
-                                        final Uri url = Uri.parse(
-                                            '${AppTextConstants.userStatement}ru');
-                                        if (!await launchUrl(
-                                          url,
-                                          mode: LaunchMode.externalApplication,
-                                        )) {
-                                          throw Exception(
-                                            'Could not launch $url',
-                                          );
-                                        }
-                                      },
-                                      child: Text(
-                                        'Я соглашаюсь на создание учетной записи в системе ЕСИ и предоставляю необходимую информацию для регистрации.',
-                                        style: AppTextStyles.s14W400().copyWith(
-                                          color: AppColors.color34C759Green,
-                                          decoration: TextDecoration.underline,
-                                          decorationColor:
-                                              AppColors.color34C759Green,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              const RegisterCheckBoxWidget(),
                             ],
                           ),
                         ),
@@ -147,16 +132,17 @@ class OEPRegisterScreen extends StatelessWidget {
                         radius: 16,
                         color: AppColors.color1EA31EGreen,
                         onPress: () {
-                          if (context
-                                  .read<RegisterOepCubit>()
-                                  .useCase
-                                  .isCheckedGetter &&
-                              context
-                                  .read<RegisterOepCubit>()
-                                  .useCase
-                                  .formKey
-                                  .currentState!
-                                  .validate()) {
+                          final bool isChecked = context
+                              .read<RegisterOepCubit>()
+                              .useCase
+                              .isCheckedGetter;
+                          final bool isValidate = context
+                              .read<RegisterOepCubit>()
+                              .useCase
+                              .formKey
+                              .currentState!
+                              .validate();
+                          if (isChecked && isValidate) {
                             AppRouting.pushFunction(const CesSelfieRoute());
                           }
                         },

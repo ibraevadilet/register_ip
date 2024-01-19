@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:register_ip/core/constants/app_text_constants.dart';
+import 'package:register_ip/core/images/app_images.dart';
 import 'package:register_ip/features/splash/splash_cubit/splash_cubit.dart';
 import 'package:register_ip/server/service_locator.dart';
 
@@ -19,10 +18,8 @@ class SplashScreen extends StatelessWidget {
           builder: (context, state) {
             return Center(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 150),
-                child: CachedNetworkImage(
-                  imageUrl: AppTextConstants.avatar,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 54),
+                child: Image.asset(AppImages.logo),
               ),
             );
           },

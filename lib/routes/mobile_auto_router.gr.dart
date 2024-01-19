@@ -34,33 +34,33 @@ import 'package:register_ip/features/register_oep/presentation/oep_finish_screen
 import 'package:register_ip/features/register_oep/presentation/oep_register_screen/oep_register_screen.dart'
     as _i9;
 import 'package:register_ip/features/splash/splash_screen.dart' as _i26;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/auth_confirm_code_screen/auth_confirm_code_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/auth_confirm_code_screen/auth_confirm_code_screen.dart'
     as _i1;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/auth_screen/auth_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/auth_screen/auth_screen.dart'
     as _i2;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/auth_send_confirm_screen/auth_send_confirm_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/auth_send_confirm_screen/auth_send_confirm_screen.dart'
     as _i3;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/error_screen/error_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/error_screen/error_screen.dart'
     as _i6;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_create_screen/pin_code_create_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/pin_code_create_screen/pin_code_create_screen.dart'
     as _i10;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_enter_screen/pin_code_enter_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/pin_code_enter_screen/pin_code_enter_screen.dart'
     as _i11;
-import 'package:register_ip/features/tunduk/authorization_tunduk/presentation/pin_code_repeat_screen/pin_code_repeat_screen.dart'
+import 'package:register_ip/features/tunduk_auth/authorization_tunduk/presentation/pin_code_repeat_screen/pin_code_repeat_screen.dart'
     as _i12;
-import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_choise_type_screen/recovery_password_choise_type_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_password/presentation/recovery_password_choise_type_screen/recovery_password_choise_type_screen.dart'
     as _i13;
-import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_enter_inn_screen/recovery_password_enter_inn_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_password/presentation/recovery_password_enter_inn_screen/recovery_password_enter_inn_screen.dart'
     as _i14;
-import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_enter_new_password_screen/recovery_password_enter_new_password_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_password/presentation/recovery_password_enter_new_password_screen/recovery_password_enter_new_password_screen.dart'
     as _i15;
-import 'package:register_ip/features/tunduk/recovery_password/presentation/recovery_password_enter_sms_code_screen/recovery_password_enter_sms_code_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_password/presentation/recovery_password_enter_sms_code_screen/recovery_password_enter_sms_code_screen.dart'
     as _i16;
-import 'package:register_ip/features/tunduk/recovery_pin_code/presentation/recovery_pin_code_choise_type_screen/recovery_pin_code_choise_type_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_pin_code/presentation/recovery_pin_code_choise_type_screen/recovery_pin_code_choise_type_screen.dart'
     as _i17;
-import 'package:register_ip/features/tunduk/recovery_pin_code/presentation/recovery_pin_code_enter_esi_password_screen/recovery_pin_code_enter_esi_password_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_pin_code/presentation/recovery_pin_code_enter_esi_password_screen/recovery_pin_code_enter_esi_password_screen.dart'
     as _i18;
-import 'package:register_ip/features/tunduk/recovery_pin_code/presentation/recovery_pin_code_enter_sms_code_screen/recovery_pin_code_enter_sms_code_screen.dart'
+import 'package:register_ip/features/tunduk_auth/recovery_pin_code/presentation/recovery_pin_code_enter_sms_code_screen/recovery_pin_code_enter_sms_code_screen.dart'
     as _i19;
 
 abstract class $AppRouter extends _i27.RootStackRouter {
